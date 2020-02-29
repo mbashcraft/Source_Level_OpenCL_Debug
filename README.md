@@ -24,10 +24,12 @@ OpenCL file at the moment.
     Note the user should only select variables in the top level kernel, as support for recording variables in other called
     functions has been disabled due to excessive overhead in the generated RTL design. If the user  wants to record variables 
     in called functions they should be inlined first.
-  After the user confirms their selection, the selection is recorded to a file. ROSE then continues to execute, reads the
-  selection from the file, and inserts the recording instrucitons
   
-Note the default type of the trace buffer is long, but it can be manually changed to whatever the user desires. 
+  After the user confirms their selection, the selection is recorded to a file. ROSE then continues to execute, reads the
+  selection from the file, and inserts the recording instructions
+  
+  Note the default type of the trace buffer is long, but it can be manually changed in the OpenCL kernel to whatever the user  
+  desires. 
 
 The host file needs to be modified to retrieve the trace buffer. An extra argument needs to be added to the kernel, which will contain the trace buffer. The size of the trace buffer is the size of each threads trace buffer times the number of threads. Each device gets its own thread. The type is dependent upon the type of the trace buffer in the kernel.
 
@@ -36,7 +38,7 @@ The layout is as follows, all data separated by a space:
 
 NUM_DEVICES NUM_THREADS TB_SIZE DEVICE_ID TRACE_BUFFER_FOR_CURRENT_DEVICE DEVICE_ID  TRACE_BUFFER_FOR_CURRENT_DEVICE ...
 
-For example if there was 2 device, 1 thread per device, a trace buffer size of 8, the DEVICE_IDs were 101 and 102, and the values in the buffers were 1-8, then the layout would be as follows:
+For example if there were 2 devices, 1 thread per device, a trace buffer size of 8, the DEVICE_IDs were 101 and 102, and the values in the buffers were 1-8, then the layout would be as follows:
 
 2 1 8 101 1 2 3 4 5 6 7 8 102 1 2 3 4 5 6 7 8
 
