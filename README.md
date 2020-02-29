@@ -6,7 +6,7 @@ Copy DefaultTranslator.c to $ROSE_HOME/src/exampleTranslators/defaultTranslator/
 
 Run “make install” in $ROSE_HOME/build/exampleTranslators/defaultTranslator/
 
-Add an hlsDebugConfig.txt file to the directory with the OpenCL file. This file contains kernel names, and a buffer size. 
+Add an "hlsDebugConfig.txt" file to the directory with the OpenCL file. This file contains kernel names, and a buffer size. 
 An example would be:
 
 KERNEL_NAME fetch
