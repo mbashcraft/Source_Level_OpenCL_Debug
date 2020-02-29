@@ -1,0 +1,4 @@
+pycairo
+PyGObject
+PyGObject-stubs
+gi
